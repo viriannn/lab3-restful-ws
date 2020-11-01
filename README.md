@@ -31,6 +31,7 @@ Proposed:
 - Support of [CORS](https://developer.mozilla.org/es/docs/Web/HTTP/Access_control_CORS) requests 
 - Support of HTTP/2 requests 
 - Support of HTTPS requests using self-signed certificate 
+- Support of OpenAPI 3.0
 
 Note: unless the goal specifies o disallows a specific framework you are free to replace the framework used in the original implementation with a different framework.
 
