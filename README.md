@@ -41,4 +41,4 @@ If you desist of your goal, release it by a PR so other fellow can try it.
 
 | NIA    | User name | Repo | Build Status | Improvement | Score
 |--------|-----------|------|--------------|-------------|--------
-|        |           |      |              |             |
+| 740491       |[José Ignacio Hernández](https://github.com/740491)|[740491/lab3-restful-ws](https://github.com/740491/lab3-restful-ws/)| ![Build Status](https://travis-ci.com/740491/lab3-restful-ws.svg?branch=test)| Trying support of OpenAPI 3.0|
