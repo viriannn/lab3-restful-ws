@@ -46,4 +46,4 @@ If you desist of your goal, release it by a PR so other fellow can try it.
 |--------|-----------|------|--------------|-------------|--------
 | 740491 |[José Ignacio Hernández](https://github.com/740491)|[740491/lab3-restful-ws](https://github.com/740491/lab3-restful-ws/tree/test)| ![Build Status](https://travis-ci.com/740491/lab3-restful-ws.svg?branch=test)| Trying support of OpenAPI 3.0 |
 | 758803 |[Daniel González](https://github.com/Uncastellum/)|[Uncastellum/lab3-restful-ws](https://github.com/Uncastellum/lab3-restful-ws/tree/test)|![Build Status](https://travis-ci.com/Uncastellum/lab3-restful-ws.svg?branch=test)|                      |
-| 761319 |[Marcos Nuez](https://github.com/Markles02/)|[Markles02/lab3-restful-ws](https://github.com/Markles02/lab3-restful-ws/tree/test)|![Build Status](https://travis-ci.com/Markles02/lab3-restful-ws.svg?branch=test)|                      |
+| 761319 |[Marcos Nuez](https://github.com/Markles02/)|[Markles01/lab3-restful-ws](https://github.com/Markles01/lab3-restful-ws/tree/test)|![Build Status](https://travis-ci.com/Markles01/lab3-restful-ws.svg?branch=test)|                      |
