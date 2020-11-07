@@ -42,3 +42,4 @@ If you desist of your goal, release it by a PR so other fellow can try it.
 | NIA    | User name | Repo | Build Status | Improvement | Score
 |--------|-----------|------|--------------|-------------|--------
 |        |           |      |              |             |
+|756123 |[Rogelio Lacruz](https://github.com/RogorStuff)|[RogorStuff/lab3-restful-ws](https://github.com/RogorStuff/lab3-restful-ws/tree/test) |[![Build Status](https://travis-ci.org/RogorStuff/lab3-restful-ws.svg)](https://travis-ci.org/RogorStuff/lab3-restful-ws)| |                      |
