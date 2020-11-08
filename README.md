@@ -25,10 +25,10 @@ Solutions must meet primary goals too.
 In progress:
 
 - Support of OpenAPI 3.0
+- Replace the current implementation (Jakarta Jersey) by a [Spring MVC](https://docs.spring.io/spring-framework/docs/current/reference/html/web.html#spring-web) (Servlet) implementation
 
 Proposed:
 
-- Replace the current implementation (Jakarta Jersey) by a [Spring MVC](https://docs.spring.io/spring-framework/docs/current/reference/html/web.html#spring-web) (Servlet) implementation
 - Replace the current implementation (Jakarta Jersey) by a [Spring WebFlux](https://docs.spring.io/spring-framework/docs/current/reference/html/web-reactive.html#spring-webflux) (Reactive) implementation
 - Support asynchronous requests without using Spring WebFlux 
 - Use [JWT credentials](https://jwt.io/) to grant access to requests
