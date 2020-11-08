@@ -18,6 +18,8 @@ returns an empty list, but it must be extended in order to verify that `GET /con
 - GET request is safe (it does not modify the contents of the address book)
 - GET request is idempotent (two consecutive calls return the same).
 
+> *Note: During the lab session was revealed that a subtle bug is hidden in the code that may cause you problems if the server has many concurrent requests. Finding this bug is not a requirement for this lab, but you must report me which flaw you suspect the code has (e.g. by adding a note in AddressBookServiceTest.java). I will accept your PR regardless your findings are correct or not, or even if you tell me you cannot find the bug. After accepting your PR, I will provide feedback by email on this bug if you cannot find it because I strongly believe that being aware of the problems that this bug causes and how to fix it will be helpful for your URL shortener project.*
+
 ## Secondary goals (:gift:)
 
 Solutions must meet primary goals too. 
