@@ -41,4 +41,4 @@ If you desist of your goal, release it by a PR so other fellow can try it.
 
 | NIA    | User name | Repo | Build Status | Improvement | Score
 |--------|-----------|------|--------------|-------------|--------
-|        |           |      |              |             |
+| 758267 | Pedro Allué | [piter1902/lab3-restful-ws](https://github.com/piter1902/lab3-restful-ws) | [![Build Status](https://travis-ci.com/piter1902/lab3-restful-ws.svg?branch=test)](https://travis-ci.com/piter1902/lab3-restful-ws) |             |
