@@ -26,7 +26,7 @@ Solutions must meet primary goals too.
 
 Done:
 
-- [Replace the current implementation (Jakarta Jersey) by a Spring MVC (Servlet) implementation](https://github.com/rauljavierre/lab3-restful-ws/tree/test) was implemented by Raul Javierre. He has learned how to map concepts from JAX-RS to Spring MVC and how frameworks can help to obtain extra information from HTTP requests. 
+- [Replace the current implementation (Jakarta Jersey) by a Spring MVC (Servlet) implementation](https://github.com/rauljavierre/lab3-restful-ws/tree/test) was implemented by Raul Javierre. He has learned how to map concepts from JAX-RS to Spring MVC and how frameworks can help to obtain extra information from HTTP requests :gift:
 
 In progress:
 
