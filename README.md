@@ -28,11 +28,11 @@ Done:
 
 - [Replace the current implementation (Jakarta Jersey) by a Spring MVC (Servlet) implementation](https://github.com/rauljavierre/lab3-restful-ws/tree/test) was implemented by Raul Javierre. He has learned how to map concepts from JAX-RS to Spring MVC and how frameworks can help to obtain extra information from HTTP requests :gift:
 - [CORS support](https://github.com/UNIZAR-30246-WebEngineering/lab3-restful-ws/pull/12) was implemented by Alvaro García on the original Jakarta Jersey implementation. His PR is explains how CORS works very clearly. Worth read :gift:
+- [Use JWT credentials to grant access to requests](https://github.com/UNIZAR-30246-WebEngineering/lab3-restful-ws/pull/14) was implemented by Alberto Calvo on the original Jakarta Jersey implementation. How JWT support is implemented in framework may differ. For example, Spring Framework requires the use of a Filter in order to integrate JWT with Spring Security. However Jakarta Jersey is more clean and the implementation of Alberto makes easier to understand how JWT works on the server side :gift:
 
 In progress:
 
 - Support of OpenAPI 3.0
-- Use [JWT credentials](https://jwt.io/) to grant access to requests
 
 Proposed:
 
