@@ -27,17 +27,17 @@ Solutions must meet primary goals too.
 Done:
 
 - [Replace the current implementation (Jakarta Jersey) by a Spring MVC (Servlet) implementation](https://github.com/rauljavierre/lab3-restful-ws/tree/test) was implemented by Raul Javierre. He has learned how to map concepts from JAX-RS to Spring MVC and how frameworks can help to obtain extra information from HTTP requests :gift:
+- [CORS support](https://github.com/UNIZAR-30246-WebEngineering/lab3-restful-ws/pull/12) was implemented by Alvaro García on the original Jakarta Jersey implementation. His PR is explains how CORS works very clearly. Worth read :gift:
+- [Use JWT credentials to grant access to requests](https://github.com/UNIZAR-30246-WebEngineering/lab3-restful-ws/pull/14) was implemented by Alberto Calvo on the original Jakarta Jersey implementation. How JWT support is implemented in framework may differ. For example, Spring Framework requires the use of a Filter in order to integrate JWT with Spring Security. However Jakarta Jersey is more clean and the implementation of Alberto makes easier to understand how JWT works on the server side :gift:
 
 In progress:
 
 - Support of OpenAPI 3.0
-- Use [JWT credentials](https://jwt.io/) to grant access to requests
 
 Proposed:
 
 - Replace the current implementation (Jakarta Jersey) by a [Spring WebFlux](https://docs.spring.io/spring-framework/docs/current/reference/html/web-reactive.html#spring-webflux) (Reactive) implementation
 - Support asynchronous requests without using Spring WebFlux 
-- Support of [CORS](https://developer.mozilla.org/es/docs/Web/HTTP/Access_control_CORS) requests 
 - Support of HTTP/2 requests 
 - Support of HTTPS requests using self-signed certificate 
 
@@ -56,5 +56,11 @@ If you desist of your goal, release it by a PR so other fellow can try it.
 | 758267 |[Pedro Allué](https://github.com/piter1902/) | [piter1902/lab3-restful-ws](https://github.com/piter1902/lab3-restful-ws/tree/test) | [![Build Status](https://travis-ci.com/piter1902/lab3-restful-ws.svg?branch=test)](https://travis-ci.com/piter1902/lab3-restful-ws) |             |
 | 761319 |[Marcos Nuez](https://github.com/Markles02/)|[Markles01/lab3-restful-ws](https://github.com/Markles01/lab3-restful-ws/tree/test)|![Build Status](https://travis-ci.com/Markles01/lab3-restful-ws.svg?branch=test)|                      |
 | 739202 |[Luis Garcia](https://github.com/luisgg98/)|[luisgg98/lab3-restful-ws](https://github.com/luisgg98/lab3-restful-ws/tree/tests)|[![Build Status](https://travis-ci.com/luisgg98/lab3-restful-ws.svg?branch=tests)](https://travis-ci.com/luisgg98/lab3-restful-ws)|                      |
-| 760739 |[Alberto Calvo](https://github.com/AlbertoCalvoRubio) |[AlbertoCalvoRubio/lab3-restful-ws](https://github.com/AlbertoCalvoRubio/lab3-restful-ws/tree/test)|[![Build Status](https://travis-ci.com/AlbertoCalvoRubio/lab3-restful-ws.svg)](https://travis-ci.com/AlbertoCalvoRubio/lab3-restful-ws) | Trying to use JWT credentials to grant access to requests|                      |
+| 760739 |[Alberto Calvo](https://github.com/AlbertoCalvoRubio) |[AlbertoCalvoRubio/lab3-restful-ws](https://github.com/AlbertoCalvoRubio/lab3-restful-ws/tree/test)|[![Build Status](https://travis-ci.com/AlbertoCalvoRubio/lab3-restful-ws.svg)](https://travis-ci.com/AlbertoCalvoRubio/lab3-restful-ws) | Trying to use JWT credentials to grant access to requests| :gift:|
+| 760704 |[Álvaro García](https://github.com/Alvarogd6)|[Alvarogd6/lab3-restful-ws](https://github.com/Alvarogd6/lab3-restful-ws/tree/test)|![Build Status](https://travis-ci.com/Alvarogd6/lab3-restful-ws.svg?branch=test)| Support of [CORS](https://developer.mozilla.org/es/docs/Web/HTTP/Access_control_CORS) requests | :gift: |
+| 756123 |[Rogelio Lacruz](https://github.com/RogorStuff)|[RogorStuff/lab3-restful-ws](https://github.com/RogorStuff/lab3-restful-ws/tree/test) |[![Build Status](https://travis-ci.org/RogorStuff/lab3-restful-ws.svg)](https://travis-ci.org/RogorStuff/lab3-restful-ws)| |                      |
+| 766685 |[Enrique Ruiz Flores](https://github.com/TheRealFreeman)|[TheRealFreeman/lab3-restful-ws](https://github.com/TheRealFreeman/lab3-restful-ws/tree/test)| ![Build Status](https://travis-ci.com/TheRealFreeman/lab3-restful-ws.svg?branch=test)|  |
+| 755769 |[Saúl Flores Benavente](https://github.com/saul205)|[saul205/lab3-restful-ws](https://github.com/saul205/lab3-restful-ws/tree/test)| ![Build Status](https://travis-ci.com/saul205/lab3-restful-ws.svg?branch=test)|  |
+| 758325 |[Irene Fumanal](https://github.com/irefu/)|[irefu/lab3-restful-ws](https://github.com/irefu/lab3-restful-ws/tree/test)|![Build Status](https://travis-ci.com/irefu/lab3-restful-ws.svg?branch=test)|                      |
+| 794429 |[Martín Gascón](https://github.com/764429)|[764429/lab3-restful-ws](https://github.com/764429/lab3-restful-ws/tree/test)| ![Build Status](https://travis-ci.com/764429/lab3-restful-ws.svg?branch=test)|  |
 
