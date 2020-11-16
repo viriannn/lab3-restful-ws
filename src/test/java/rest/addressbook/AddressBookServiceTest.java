@@ -1,6 +1,7 @@
 package rest.addressbook;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 
 import java.io.IOException;
@@ -52,6 +53,18 @@ public class AddressBookServiceTest {
     // Verify that GET /contacts is well implemented by the service, i.e
     // complete the test to ensure that it is safe and idempotent
     //////////////////////////////////////////////////////////////////////
+    // Safe(status can't change on the operation) and idempotente( same request -> Same result)
+
+    //Safe:
+    assertEquals(0, ab.getPersonList().size()); //Size of ab didn't change before get request
+
+    //Idempotent
+    Response response2 = client.target("http://localhost:8282/contacts")
+    .request().get();
+    assertEquals(200, response2.getStatus());                                  //Same result
+    assertEquals(0, response2.readEntity(AddressBook.class).getPersonList()    
+    .size());
+    assertEquals(response2.getStatus(),response.getStatus());                 //And same response
   }
 
   @Test
@@ -93,7 +106,19 @@ public class AddressBookServiceTest {
     // Verify that POST /contacts is well implemented by the service, i.e
     // complete the test to ensure that it is not safe and not idempotent
     //////////////////////////////////////////////////////////////////////
+    //Not safe (Status will change before the operation) and no idempotent (result will be diferent between operations)
+    //Not safe:
+    assertEquals(1, ab.getPersonList().size());
 
+    //Not idempotent
+    Response response2 = client.target("http://localhost:8282/contacts")
+      .request(MediaType.APPLICATION_JSON)
+      .post(Entity.entity(juan, MediaType.APPLICATION_JSON));
+    assertEquals(201, response2.getStatus());
+    assertNotEquals(juanURI, response2.getLocation());
+    Person juanUpdated2 = response2.readEntity(Person.class);
+    assertNotEquals(juanUpdated2.getId(), juan.getId());
+    assertEquals(2, ab.getPersonList().size()); //And again,ab status changed
   }
 
   @Test
@@ -148,7 +173,22 @@ public class AddressBookServiceTest {
     // Verify that GET /contacts/person/3 is well implemented by the service, i.e
     // complete the test to ensure that it is safe and idempotent
     //////////////////////////////////////////////////////////////////////
+    // Safe(status can't change on the operation) and idempotente( same request -> Same result)
 
+    //Safe:
+    assertEquals(3, ab.getPersonList().size()); //Size of ab didn't change before get request
+
+    //Idempotent
+    Response response2 = client.target("http://localhost:8282/contacts/person/3")
+      .request(MediaType.APPLICATION_JSON).get();         
+    assertEquals(200, response2.getStatus());                          //Same requests, same results
+    assertEquals(response2.getStatus(),response.getStatus());
+
+    Person Maria2 = response2.readEntity(Person.class);                //Person is the same
+    assertEquals(maria.getName(), Maria2.getName());
+    assertEquals(3, Maria2.getId());
+
+    assertEquals(3, ab.getPersonList().size());                       //Size of ab didn't change before requests
   }
 
   @Test
@@ -180,6 +220,25 @@ public class AddressBookServiceTest {
     // Verify that GET /contacts is well implemented by the service, i.e
     // complete the test to ensure that it is safe and idempotent
     //////////////////////////////////////////////////////////////////////
+    // Safe(status can't change on the operation) and idempotente( same request -> Same result)
+    assertEquals(2, ab.getPersonList().size());
+    assertEquals(juan.getName(), ab.getPersonList().get(1).getName());
+
+    Response response2 = client.target("http://localhost:8282/contacts")
+      .request(MediaType.APPLICATION_JSON).get();
+    assertEquals(200, response.getStatus());
+    assertEquals(response.getStatus(),response2.getStatus());
+
+    AddressBook addressBookRetrieved2 = response2
+      .readEntity(AddressBook.class);
+    assertEquals(2, addressBookRetrieved2.getPersonList().size());
+    assertEquals(salvador.getName(), addressBookRetrieved.getPersonList()
+      .get(0).getName());
+    assertEquals(juan.getName(), addressBookRetrieved.getPersonList()
+      .get(1).getName());
+
+    assertEquals(2, ab.getPersonList().size());
+    assertEquals(juan.getName(), ab.getPersonList().get(1).getName());
 
   }
 
@@ -233,6 +292,32 @@ public class AddressBookServiceTest {
     // Verify that PUT /contacts/person/2 is well implemented by the service, i.e
     // complete the test to ensure that it is idempotent but not safe
     //////////////////////////////////////////////////////////////////////
+    // Not safe(status change on the operation) and idempotente( same request -> Same result)
+    // Not safe:
+    // Update Maria to Victor
+    Person victor = new Person();
+    victor.setName("Victor");
+    Client newclient = ClientBuilder.newClient();
+    Response response2 = newclient
+      .target("http://localhost:8282/contacts/person/2")
+      .request(MediaType.APPLICATION_JSON)
+      .put(Entity.entity(victor, MediaType.APPLICATION_JSON));
+    assertEquals(200, response2.getStatus());
+    assertEquals(MediaType.APPLICATION_JSON_TYPE, response2.getMediaType());
+    Person mariaUpdated = response2.readEntity(Person.class);   //The operation change ab's status
+    assertEquals(victor.getName(), mariaUpdated.getName());
+    assertEquals(2, mariaUpdated.getId());
+
+    //Idempotent
+    response2 = newclient
+      .target("http://localhost:8282/contacts/person/2")
+      .request(MediaType.APPLICATION_JSON)
+      .put(Entity.entity(victor, MediaType.APPLICATION_JSON));
+    assertEquals(200, response2.getStatus());
+    assertEquals(MediaType.APPLICATION_JSON_TYPE, response2.getMediaType());
+    mariaUpdated = response2.readEntity(Person.class);   
+    assertEquals(victor.getName(), mariaUpdated.getName());
+    assertEquals(2, mariaUpdated.getId());
 
   }
 
@@ -266,6 +351,28 @@ public class AddressBookServiceTest {
     // Verify that DELETE /contacts/person/2 is well implemented by the service, i.e
     // complete the test to ensure that it is idempotent but not safe
     //////////////////////////////////////////////////////////////////////
+    
+    // Not safe(status change on the operation) and idempotente( same request -> Same result)
+    // Not safe
+    assertEquals(1, ab.getPersonList().size());
+    response = client
+      .target("http://localhost:8282/contacts/person/1").request()
+      .delete();
+    assertEquals(204, response.getStatus());
+    assertEquals(0, ab.getPersonList().size());
+
+    Response response2 = client.target("http://localhost:8282/contacts/person/1")
+      .request().delete();
+    assertEquals(404, response2.getStatus()); //Not safe, so the same result is 404
+
+    //If you added again the deleted used:
+    ab.getPersonList().add(salvador);
+    response2 = client
+      .target("http://localhost:8282/contacts/person/1").request()
+      .delete();
+    assertEquals(204, response.getStatus());
+    assertEquals(0, ab.getPersonList().size());
+    assertEquals(response.getStatus(),response2.getStatus()); //Same result
 
   }
 
